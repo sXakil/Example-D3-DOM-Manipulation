@@ -16,6 +16,7 @@ d3.select("#new-note")
 
 d3.select("#rand-add")
     .on('click', function() {
+	  d3.event.preventDefault();
       var r = Math.floor(Math.random() * 255);
       var g = Math.floor(Math.random() * 255);
       var b = Math.floor(Math.random() * 255);
@@ -24,8 +25,7 @@ d3.select("#rand-add")
       var bb = b + Math.floor(b * 0.1);
       var text = 'rgb(1, 1, 1)';
       if((r+g+b) < 380) text = 'rgb(250, 250, 250)';
-      
-      d3.event.preventDefault();
+     
       if(d3.select('input').property('value').length == 0) {
         alert("Input is empty!");
       }
