@@ -1,7 +1,6 @@
 d3.select("#new-note")
     .on('click', function() {
       d3.event.preventDefault();
-      var input = d3.select('input');
       if(d3.select('input').property('value').length == 0) {
         alert("Input is empty!");
       }
@@ -9,8 +8,8 @@ d3.select("#new-note")
         d3.select("#notes")
           .append('p')
             .classed('note', true)
-            .text(input.property('value'));
-        input.property('value', '');
+            .text(d3.select('input').property('value'));
+        d3.select('input').property('value', '');
         d3.select(".prev-note").remove();
       }
     });
@@ -43,7 +42,6 @@ d3.select("#rand-add")
         d3.select(".prev-note").remove();
       }
     });
-    // Math.floor(Math.random() 
 
 d3.select("#clear-notes")
     .on('click', function() {
